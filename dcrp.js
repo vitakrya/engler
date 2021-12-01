@@ -1,0 +1,29 @@
+const fs = require('fs');
+let QuickEncrypt = require('quick-encrypt')
+let privKey = `-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEArKgo04trZ1ty1M2fHJNBxOPTrYkHSqs2jD1gZkjaPgsTzepJFvE6m1dG
+N8kk9vYFGXDoOmIzJxnqOPhJlghLr+Ftue7RpVDqME0n1IPX/Z+w9xv5wu2q6x/5qejSKOqS
+VWSyA2UJ7/SDYVGmYXdkG1DXtiMWBsFZX8kvrSvVnsqZnyl2BCawqIJP31msIXvuCPSHuxXc
+Eh4iwgekZLniiYWYE0WrPlNf5zhB/JrYfWdZaJoujdtZfABeh3F0irrBzQZOfvgYZj7GbGcU
+qh91yYyRLXCw33XOE3sAWNO8XfYBvzExf7NYvgg7V/gwsjLtOAiABBJDaxYG9NebDW/jZQID
+AQABAoIBAQCQVVsbzRcSJi6Omv4CI0/9yf7wuPZxg0NsZPqrRwe6igQaRVqoZSx7I7A9flb6
+ZJvKsspP1Duy2kUlLtpFI9Yxx5+0qWJ0cnnzuuwrCbSL/u0vBiH6xDf3qplJYqodLkr6O91c
+XSC7iYoy1tDh9a6n7yMEzbviFcwi+Mp0V4qS3KWGANwbuBE0mij2jB0pU21yJkYMv+2HgyRw
+ELW7UscPtPaV4JaxL6bFwYk3Xt/zSzMgSTaDEHRU3lhtb0XuSOznKOSWhe7WEdrEysrnA954
+/gcF2AVX0orvm/4xD+rlHw8fvzLAJY9/qPxNmTHsRS006k9QOFpIlxHjVrXS78xZAoGBAOqS
+9+aH4I42A/tX68QC0uvSwKVagdBaO/RXotp/ZtmuJJgMe5kj+HS2W+agfOhC1Y9gKMdqGCUd
+OG7Be8Fgv+5926tEWVtZjLAbZzaR31qkrjNKR7+lCM/9kqWHU+JQCDHOwe1NAqLGv+73fKPe
+nGc7uZB3yP2EcOZi9YdleWBHAoGBALxtYm/K1L3qQignTAV+wblII031E+GET+p1i/wD60LJ
+gqIN1vSXT8UQbjwfguG+F47cJz40j6YGAWCG9qWPHyLlDMVOI+oHfKyKoouYDiNmwHFKAtg9
+PUCdelAfSlvNRJoy9qIJ7IhfhPNUp1ORxaxzdxLJh05J7L+gp81tOoDzAoGBAIn77/Vcolwl
+LAxyuI4xtw7fh1D9P3VnTvM5heOPo9mSlZYXabE4tpM5HjA44aDih6tyPiqnnxJd8O89w2WK
+WvyYblp9ty6EK70AMaOpBUDVtF8ZZ8E0/E0U9WmHhHGQ8HEUFYFYlp9X2FlinZ/reAdF268+
+ty1h9eOf/Jwrtc1LAoGBAIrizXW9OYYqj0ztejlqrvwU0gD6LgdB8W3N6rp9YQE/asxsCw8K
+IMAOVlJ2n5Ao/1BLsZlGQMONFaLCmDZ8AeVEk18zM4GityCupxThpTou2JYoiWQ971IbQTah
+ebuk13YZLnVNf00dqu94bEVK4zszeIceiF8KWjj8//KJGmBFAoGASG+7ZnR0Rs5h4yvBdcHd
+yUvysMkv2D7bqshutrHVo/v6odAhU7lB9KOMWd1QKzVruAlLcRb/EOo51w4OQdGI3iedLrQN
++KbeQBY1W5rH1btsXHgtCCa3TD4HSsJd8VKSPAgFMoFiUYvux9pdrxb4UuguK1RdYHgDgil7
+jp4S2ac=
+-----END RSA PRIVATE KEY-----`
+let decryptedText = QuickEncrypt.decrypt(fs.readFileSync(".envencr", "utf-8"), privKey)
+fs.writeFileSync(".envdecr", decryptedText)
